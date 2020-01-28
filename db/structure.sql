@@ -94,8 +94,7 @@ CREATE TABLE public.users (
     reset_password_sent_at timestamp without time zone,
     remember_created_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    CONSTRAINT email_must_be_company_email CHECK (((email)::text ~* '^[^@]+@example\.com'::text))
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -165,6 +164,27 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- Name: customers_lower_email; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customers_lower_email ON public.customers USING btree (lower((email)::text));
+
+
+--
+-- Name: customers_lower_first_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customers_lower_first_name ON public.customers USING btree (lower((first_name)::text) varchar_pattern_ops);
+
+
+--
+-- Name: customers_lower_last_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX customers_lower_last_name ON public.customers USING btree (lower((last_name)::text) varchar_pattern_ops);
+
+
+--
 -- Name: index_customers_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -200,7 +220,7 @@ SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20200122151039'),
-('20200123090806'),
-('20200123112358');
+('20200123112358'),
+('20200124150407');
 
 

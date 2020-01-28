@@ -8,6 +8,7 @@ class CustomerSearchTerm
          build_for_email_search(search_term)
         else
          build_for_name_search(search_term)
+        end
     end
 
     def build_for_name_search(search_term)
