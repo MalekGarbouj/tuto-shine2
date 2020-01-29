@@ -59,7 +59,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  # START_HIGHLIGHT
+  gem 'poltergeist'
+  # END_HIGHLIGHT
   gem 'capybara', '>= 2.15'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
