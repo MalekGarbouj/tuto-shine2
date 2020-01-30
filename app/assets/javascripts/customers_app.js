@@ -12,10 +12,10 @@ app.controller("CustomerSearchController", ["$scope","$http",function($scope , $
        { "params": { "keywords": searchTerm, "page": page } })
             .then(function(response) {
             $scope.customers = response.data;
-            },function(response) {
-            alert("There was a problem: " + response.status);
+            }.error(function(data,status,headers,config) {
+            alert("There was a problem: " + status);
             }
-        );
+        ));
     }
         
     $scope.previousPage = function() {

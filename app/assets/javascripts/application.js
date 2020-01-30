@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require angular
+//= require angular-route
 //= require_tree .

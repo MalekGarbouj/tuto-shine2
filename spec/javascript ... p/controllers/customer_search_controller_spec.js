@@ -1,5 +1,5 @@
 describe("CustomerSearchController", function() {
-    describe("Initialization", function() {
+    describe("Error Handling", function() {
 
         var scpoe       = null,
             controller  = null,
@@ -41,13 +41,15 @@ describe("CustomerSearchController", function() {
         
         beforeEach(function() {
             httpBackend.when('GET','/customers.json?keywords=bob&page=0')
-                       .respond(serverResults);
+                       .respond(500,'Internal Server Error');
+            spyOn(window, "alert");           
         });
 
-        it("populates the customer list with the results", function() {
+        it("alert the user on an error", function() {
             scope.search("bob");
             httpBackend.flush();
-            expect(scope.customers).toEqualData(serverResults);
+            expect(scpoe.customers).toEqualData([]);
+            expect(window.alert).toHaveBeenCalledWith("there was a problem: 500");
         });
         
     });
