@@ -64,6 +64,7 @@ group :development, :test do
   # END_HIGHLIGHT
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
+  gem 'teaspoon-jasmine'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
