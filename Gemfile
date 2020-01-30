@@ -31,7 +31,8 @@ gem 'bower-rails'
 gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'angular-rails-templates'
+gem 'sprockets', '~> 3.7.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
